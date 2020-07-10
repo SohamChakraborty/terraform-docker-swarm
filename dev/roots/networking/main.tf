@@ -1,7 +1,6 @@
 terraform {
   required_version  = ">=0.12.13"
   backend "s3" {}
-
 }
 
 provider "aws" {
@@ -11,7 +10,6 @@ provider "aws" {
 }
 
 module "vpc" {
-    #source                  = "../../../../terraform-modules/terraform-aws-vpc/"
     source                  = "terraform-aws-modules/vpc/aws"
     version                 = "2.40.0"
     name                    = "${var.environment}-primary-vpc"
@@ -22,4 +20,13 @@ module "vpc" {
     enable_dns_support      = true
     enable_dns_hostnames    = true
     enable_nat_gateway      = false
+    tags = {
+      Environment = var.environment
+      }
+    public_subnet_tags = {
+      Tier  = "public"
     }
+    private_subnet_tags = {
+      Tier  = "private"
+    }
+  }

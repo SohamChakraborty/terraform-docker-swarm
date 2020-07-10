@@ -6,6 +6,9 @@ provider "aws" {
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "docker-swarm-state"
 
+// We have prevent_destroy = false here because we may need to remove the terraform state until 
+// the infrastructure is finalized.
+
   lifecycle {
    # prevent_destroy = true
     prevent_destroy = false
