@@ -1,0 +1,9 @@
+image_id            = ""
+instance_type       = "t3a.medium"
+min_size            = 3
+max_size            = 5
+desired_capacity    = 3
+ebs_volume_size     = 16
+root_volume_size    = 8
+environment         = "development"
+role                = "docker-swarm-manager"

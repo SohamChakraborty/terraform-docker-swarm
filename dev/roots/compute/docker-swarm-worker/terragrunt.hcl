@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  extra_arguments "networking_vars" {
+  extra_arguments "docker_swarm_manager_vars" {
     commands = [
       "apply",
       "plan",
@@ -12,8 +12,8 @@ terraform {
       "refresh",
       "destroy"
     ]
-//    required_var_files = [
-//      "${get_parent_terragrunt_dir()}/variables/networking/development.tfvars"
-//    ]
+    required_var_files = [
+      "${get_parent_terragrunt_dir()}/variables/compute/docker-swarm-worker/development.tfvars"
+    ]
   }
 }

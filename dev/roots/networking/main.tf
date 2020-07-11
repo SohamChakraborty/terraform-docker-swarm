@@ -23,6 +23,7 @@ module "vpc" {
     tags = {
       Environment = var.environment
       }
+  // This is from https://github.com/terraform-aws-modules/terraform-aws-vpc/blob/master/main.tf#L354
     public_subnet_tags = {
       Tier  = "public"
     }
