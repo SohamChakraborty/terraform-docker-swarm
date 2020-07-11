@@ -51,7 +51,7 @@ data "aws_security_groups" "private_security_groups" {
   }
 }
 
-module "docker-swarm-manager-asg" {
+module "docker-swarm-worker-asg" {
   source                    = "terraform-aws-modules/autoscaling/aws"
   version                   = "~> 3.0"
   name                      = "${var.environment}-${var.role}"

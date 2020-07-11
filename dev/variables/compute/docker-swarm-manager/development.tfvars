@@ -1,4 +1,4 @@
-image_id            = ""
+//image_id            = ""
 instance_type       = "t3a.medium"
 min_size            = 3
 max_size            = 5
