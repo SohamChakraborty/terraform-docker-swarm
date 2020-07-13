@@ -55,11 +55,19 @@ module "docker-swarm-manager-asg" {
   source                    = "terraform-aws-modules/autoscaling/aws"
   version                   = "~> 3.0"
   name                      = "${var.environment}-${var.role}"
+//  name                      = "${var.environment}-${var.role}-${var.instance_count[index]}" //same name will pop up.
   lc_name                   = "${var.environment}-${var.role}-launch-configuration"
   image_id                  = data.aws_ami.docker-swarm-manager-ami.image_id
   instance_type             = var.instance_type
   security_groups           = data.aws_security_groups.private_security_groups.ids
   vpc_zone_identifier       = data.aws_subnet_ids.private_subnet_groups.ids
+  asg_name                  = "${var.environment}-${var.role}"
+  key_name                  = var.key_name
+  min_size                  = var.min_size
+  max_size                  = var.max_size
+  desired_capacity          = var.desired_capacity
+  wait_for_capacity_timeout = 0                                # TBD
+  health_check_type         = "EC2"
 
 
   ebs_block_device = [
@@ -78,13 +86,6 @@ module "docker-swarm-manager-asg" {
     }
   ]
 
-  asg_name                  = "${var.environment}-${var.role}"
-  min_size                  = var.min_size
-  max_size                  = var.max_size
-  desired_capacity          = var.desired_capacity
-  wait_for_capacity_timeout = 0                                # TBD
-  health_check_type         = "EC2"
-
   tags = [
     {
       key                 = "Environment"
@@ -97,6 +98,14 @@ module "docker-swarm-manager-asg" {
       propagate_at_launch = true
     },
   ]
+//  dynamic "tag" {
+//    for_each = var.custom_tags
+//      content {
+//        key                 = tag.key
+//        value               = tag.value
+//        propagate_at_launch = true
+//      }
+//    }
 
   tags_as_map = {
     docker-swarm-role = "manager"

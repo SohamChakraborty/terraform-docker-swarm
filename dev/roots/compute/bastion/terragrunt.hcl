@@ -12,8 +12,8 @@ terraform {
       "refresh",
       "destroy"
     ]
-//    required_var_files = [
-//      "${get_parent_terragrunt_dir()}/variables/networking/development.tfvars"
-//    ]
+    required_var_files = [
+      "${get_parent_terragrunt_dir()}/variables/compute/bastion/development.tfvars"
+    ]
   }
 }

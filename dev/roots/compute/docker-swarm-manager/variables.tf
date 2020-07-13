@@ -34,3 +34,16 @@ variable "desired_capacity" {
     description     = "Desired capacity of the development docker swarm cluster"
 }
 
+//variable "custom_tags" {
+//  description = "Custom tags to set on the Instances in the ASG"
+//  type        = map(string)
+//}
+
+variable "instance_count" {
+    description = "Let's see"
+    type        = list(number)
+}
+
+variable "key_name" {
+    description = "SSH key to access"
+}

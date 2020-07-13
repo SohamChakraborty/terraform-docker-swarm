@@ -7,3 +7,5 @@ ebs_volume_size     = 16
 root_volume_size    = 8
 environment         = "development"
 role                = "docker-swarm-manager"
+instance_count      = [3]
+key_name            = "soham-test-mapp"
