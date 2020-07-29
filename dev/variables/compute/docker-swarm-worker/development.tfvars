@@ -7,3 +7,4 @@ ebs_volume_size     = 16
 root_volume_size    = 8
 environment         = "development"
 role                = "docker-swarm-worker"
+key_name            = "eu_west_2_ssh_key"

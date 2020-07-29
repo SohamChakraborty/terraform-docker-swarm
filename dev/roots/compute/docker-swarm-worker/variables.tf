@@ -34,3 +34,6 @@ variable "desired_capacity" {
     description     = "Desired capacity of the development docker swarm worker cluster"
 }
 
+variable "key_name" {
+    description     = "SSH key to access"
+}

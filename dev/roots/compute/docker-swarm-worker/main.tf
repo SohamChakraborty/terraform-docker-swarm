@@ -83,6 +83,7 @@ module "docker-swarm-worker-asg" {
   max_size                  = var.max_size
   desired_capacity          = var.desired_capacity
   wait_for_capacity_timeout = 0                                # TBD
+  key_name                  = var.key_name
   health_check_type         = "EC2"
 
   tags = [
