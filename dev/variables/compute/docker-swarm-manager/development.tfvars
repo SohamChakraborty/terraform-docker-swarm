@@ -8,4 +8,4 @@ root_volume_size    = 8
 environment         = "development"
 role                = "docker-swarm-manager"
 instance_count      = [3]
-key_name            = "soham-test-mapp"
+key_name            = "eu_west_2_ssh_key"

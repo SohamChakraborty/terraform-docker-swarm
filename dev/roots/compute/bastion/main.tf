@@ -57,7 +57,7 @@ module "nat" {
   source                      = "int128/nat-instance/aws"
   version                     = "1.0.2"
   name                        = "main"
-  key_name                    = var.key_name            // Key has been added with terraform
+  key_name                    = var.key_name              // Key has been added with terraform
   vpc_id                      = data.aws_vpc.selected.id
   public_subnet               = data.aws_subnet.public_subnet.id
   private_subnets_cidr_blocks = list(data.aws_vpc.selected.cidr_block)
