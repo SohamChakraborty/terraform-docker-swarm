@@ -109,16 +109,5 @@ module "docker-swarm-manager-asg" {
 
   tags_as_map = {
     docker-swarm-role = "manager"
-    //extra_tag2 = "extra_value2"
   }
 }
-
-//module "nlb" {
-//  source                    = "terraform-aws-modules/alb/aws"
-//  version                   = "~5.0"
-
-//  name                      = "${var.environment}-{var.role}-nlb"
-//  load_balancer_type        = var.load_balancer_type
-//  vpc_id                    = data.aws_vpc.default.id
-//  subnets                   = data.vpc.private_subnet
-//}

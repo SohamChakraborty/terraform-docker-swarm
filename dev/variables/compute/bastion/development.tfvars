@@ -1,1 +1,10 @@
-key_name                = "eu_west_2_ssh_key"
+instance_type       = "t3a.medium"
+min_size            = 1
+max_size            = 2
+desired_capacity    = 1
+ebs_volume_size     = 16
+root_volume_size    = 8
+environment         = "development"
+role                = "bastion"
+instance_count      = [1]
+key_name            = "eu_west_2_ssh_key"

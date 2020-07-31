@@ -15,5 +15,5 @@ resource "aws_key_pair" "soham_ssh_key" {
     tags                    = {
         name           = "soham-ssh-key"
   }
-    public_key              = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDLubLnkS0lxmcj7AWQjUdflJmG9j+GcKIgteX2jgnCcljiNTd2RG3RXwrg1d/aumbknrkl02W2pfsZ7fxy14Qw+1kInefUb5/Eu0DBRYDOamYuzDvF0igQdHvFaZ067FeZgNNU/UBBAAT6Pr4JrNnx59HofTbB/W/+swdbs5lXJkgMqlgqAJk1pTicRVdegscQrJVkl/uxKRSmuY/mNHZoCh7ApIQcCoWrs2Mv/J39Os+gAb1UIWL0E48Exq6opXxRWZFi/636TmamFjzRzAoZqS4lbGOs2Ejo6Lt8WNq0DphREQXQSTauYDT/A6lIaBfzWFDSpW99lCFNdE4N5QbC7FRgtkrQSTp2zSkz2OQ9Wp/hddvkkzAF9K4aovxNYHKMc2e0Hon+jFm5KdTsnk7BWOM1siWL0cS2ttByK99eriMFQYV7zw/V6nFK58SkeL4BYd8PWiaFP/5iwXpnk/PH2PSpLRq7dXey1Qs0MYmN2ihN/vyT+lT9OCc5KtJl1H8= soham@localhost.localdomain"
+    public_key              = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDH8uZQzBu7yZs+Bi8khqCk4lo88sJAnMr0BkujNnYOxk+Ov/WxrIy1YllB5d6S9TNfi7vVjMoufq+kO1OcXAeKEPcsNQy11DQOaEhd5UD+jWwSuJTsGgdamn7hlUfbxcDO+l3w15x0jZ2ZvS4MUdRHNblcIdViESvgTK9RdY1UGJkm7v9+Ns1rDimckH6sCca5Zqund79acO8oopEEtePKxzKgwFFg7p65OFKmw/AMMbPqzP7WUc1tZJ788+cHSFjHF9hDsR4ykucU1ngbVdPGBL0igLgr5eG2D0xHLUOsGPpZIdyOaHyu+7YURgRcR4Vuq5m7FBtRE064vO8Vww0LWCNkeJHpymx1OZV+1L2eTkFAjiwccPcbAgOuX2waVbBHC1cqu9nJmV+VXsJXc17OxrKo9k8bzjFAMBCv8Lj13q0Pon/oNY8lhwISVVlmZw3l0a8Bg4Jt49Wag9HbZOqWpO0tHjzBi0DNUOFaJcpyzJRWa9gpxBzYdOFOZzcigPs= soham@localhost.localdomai"
 }
