@@ -13,7 +13,7 @@ terraform {
       "destroy"
     ]
     required_var_files = [
-      "${get_parent_terragrunt_dir()}/variables/iam/roles/development.tfvars"
+      "${get_parent_terragrunt_dir()}/variables/iam/roles/ec2-ssm-role/development.tfvars"
     ]
   }
 }

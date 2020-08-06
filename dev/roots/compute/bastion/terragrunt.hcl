@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  extra_arguments "networking_vars" {
+  extra_arguments "bastion_vars" {
     commands = [
       "apply",
       "plan",

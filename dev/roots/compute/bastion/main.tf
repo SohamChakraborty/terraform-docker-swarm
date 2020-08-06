@@ -69,7 +69,7 @@
 # Also the previous module couldn't let us use the security groups defined from our directory structure
 
 terraform {
-  required_version  = ">=0.12.13"
+  required_version  = "~> 0.12.13"
   backend "s3" {}
 
 }
