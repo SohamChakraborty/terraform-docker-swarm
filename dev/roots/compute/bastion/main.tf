@@ -30,22 +30,6 @@
 #    }
 #}
 #
-#data "aws_subnet" "public_subnet" {
-#    vpc_id = data.aws_vpc.selected.id
-#    filter {
-#      name    = "tag:Name"
-#      values  = ["development-primary-vpc-public-eu-west-2a*"]
-#    }
-#}
-#
-#data "aws_route_tables" "private_route_tables" {
-#  vpc_id      = data.aws_vpc.selected.id
-#  filter {
-#    name      = "tag:Name"
-#    values    = ["development-primary-vpc-private-*"]
-#  }
-#}
-#
 #// As of now, the user data cannot be rendered because the following module doesn't use it.
 #// Maybe I will refactor it at some time.
 #
@@ -121,7 +105,7 @@ data "aws_security_groups" "bastion_security_group" {
   }
 }
 
-module "bastion-asg" {
+module "bastion-asg"  {
   source                    = "terraform-aws-modules/autoscaling/aws"
   version                   = "~> 3.0"
   name                      = "${var.environment}-${var.role}"
@@ -172,4 +156,5 @@ module "bastion-asg" {
 //  tags_as_map = {
  //   docker-swarm-role = "manager"
 //  }
+
 }

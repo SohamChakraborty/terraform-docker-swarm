@@ -1,0 +1,11 @@
+instance_type       = "t3a.medium"
+ami                 = "ami-0aa3620fadad9198e"
+ebs_volume_size     = 16
+root_volume_size    = 8
+environment         = "development"
+role                = "wiki"
+application         = "mediawiki"
+key_name            = "eu_west_2_ssh_key"
+azs                 = "eu-west-2a"
+#iam_instance_profile = "ec2-ssm-role"
+#availability_zone   = "eu-west-2a"
