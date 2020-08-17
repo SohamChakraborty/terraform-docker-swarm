@@ -64,24 +64,8 @@ provider "aws" {
     profile                 = "soham-pythian-sandbox"
 }
 
-data "aws_ami" "bastion_ami" {
-  most_recent      = true
-  owners           = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["amzn-ami-hvm-????.??.?.????????-x86_64-gp2"]
-  }
-
-  filter {
-    name   = "root-device-type"
-    values = ["ebs"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+provider "template" {
+    version                 = "2.1"
 }
 
 data "aws_vpc" "selected" {
@@ -105,23 +89,33 @@ data "aws_security_groups" "bastion_security_group" {
   }
 }
 
+data "template_file" "user_data" {
+    template = file("../userdata/bastion/scripts/script.yaml")
+}
+
+data "aws_iam_instance_profile" "ec2-ssm-role" {
+    name = "ec2-ssm-role"
+}
+
 module "bastion-asg"  {
   source                    = "terraform-aws-modules/autoscaling/aws"
   version                   = "~> 3.0"
-  name                      = "${var.environment}-${var.role}"
-//  name                      = "${var.environment}-${var.role}-${var.instance_count[index]}" //same name will pop up.
-  lc_name                   = "${var.environment}-${var.role}-launch-configuration"
-  image_id                  = data.aws_ami.bastion_ami.image_id
+  name                      = "${var.Environment}-${var.Role}"
+//  name                      = "${var.Environment}-${var.Role}-${var.instance_count[index]}" //same name will pop up.
+  lc_name                   = "${var.Environment}-${var.Role}-launch-configuration"
+  image_id                  = var.bastion_ami
   instance_type             = var.instance_type
   security_groups           = data.aws_security_groups.bastion_security_group.ids
   vpc_zone_identifier       = data.aws_subnet_ids.private_subnet_groups.ids
-  asg_name                  = "${var.environment}-${var.role}"
+  asg_name                  = "${var.Environment}-${var.Role}"
   key_name                  = var.key_name
   min_size                  = var.min_size
   max_size                  = var.max_size
   desired_capacity          = var.desired_capacity
   wait_for_capacity_timeout = 0                                # TBD
   health_check_type         = "EC2"
+  iam_instance_profile      = data.aws_iam_instance_profile.ec2-ssm-role.name
+  user_data                 = data.template_file.user_data.rendered
 
 
   ebs_block_device = [
@@ -143,12 +137,12 @@ module "bastion-asg"  {
   tags = [
     {
       key                 = "Environment"
-      value               = "var.environment"
+      value               = "development"
       propagate_at_launch = true
     },
     {
       key                 = "Role"
-      value               = "var.role"
+      value               = "bastion"
       propagate_at_launch = true
     },
   ]

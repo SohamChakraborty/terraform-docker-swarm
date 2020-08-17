@@ -1,3 +1,7 @@
+variable "bastion_ami" {
+    description         = "Image ID of the bastion host"
+}
+
 variable "key_name" {
     description         = "SSH Key to login to the bastion server"
 }
@@ -14,11 +18,11 @@ variable "root_volume_size" {
     description     = "Size of the root volume"
 }
 
-variable "environment" {
+variable "Environment" {
     description     = "Environment name"
 }
 
-variable "role" {
+variable "Role" {
     description     = "Role name"
 }
 

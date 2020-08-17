@@ -1,6 +1,6 @@
-//variable "image_id" {
-//    description     = "AMI from which the docker swarm cluster is built"
-//}
+variable "docker_swarm_ami" {
+    description     = "AMI from which the docker swarm workers are built"
+}
 
 variable "instance_type" {
     description     = "What is the instance type to build docker swarm worker cluster"

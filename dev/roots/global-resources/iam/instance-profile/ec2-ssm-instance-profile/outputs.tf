@@ -12,3 +12,4 @@ output "ec2-ssm-role-path" {
     description         = "Path of the role"
     value               = module.ec2-ssm-role.this_iam_role_path
 }
+

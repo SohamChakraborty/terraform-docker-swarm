@@ -10,24 +10,8 @@ provider "aws" {
     profile                 = "soham-pythian-sandbox"
 }
 
-data "aws_ami" "docker-swarm-worker-ami" {
-  most_recent      = true
-  owners           = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["amzn-ami-hvm-????.??.?.????????-x86_64-gp2"]
-  }
-
-  filter {
-    name   = "root-device-type"
-    values = ["ebs"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+data "template_file" "user_data" {
+    template = file("../userdata/docker-swarm-worker/scripts/script.yaml")
 }
 
 data "aws_vpc" "selected" {
@@ -56,7 +40,7 @@ module "docker-swarm-worker-asg" {
   version                   = "~> 3.0"
   name                      = "${var.environment}-${var.role}"
   lc_name                   = "${var.environment}-${var.role}-launch-configuration"
-  image_id                  = data.aws_ami.docker-swarm-worker-ami.image_id
+  image_id                  = var.docker_swarm_ami
   instance_type             = var.instance_type
   security_groups           = data.aws_security_groups.private_security_groups.ids
   vpc_zone_identifier       = data.aws_subnet_ids.private_subnet_groups.ids

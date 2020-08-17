@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  extra_arguments "mediawiki_vars" {
+  extra_arguments "iam_vars" {
     commands = [
       "apply",
       "plan",
@@ -13,7 +13,8 @@ terraform {
       "destroy"
     ]
     required_var_files = [
-      "${get_parent_terragrunt_dir()}/variables/compute/mediawiki/development.tfvars"
+      "${get_parent_terragrunt_dir()}/variables/iam/instance-profile/ec2-ssm-instance-profile/development.tfvars"
     ]
   }
 }
+

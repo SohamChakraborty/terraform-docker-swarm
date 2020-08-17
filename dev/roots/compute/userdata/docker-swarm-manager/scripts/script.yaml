@@ -1,0 +1,21 @@
+#cloud-config
+# Add groups to the system
+# Adds the admin group with members 'root' and 'schakraborty'
+groups:
+  - admin: [root,schakraborty]
+
+# Add users to the system. Users are added after groups are added.
+users:
+  - default
+  - name: schakraborty
+    gecos: Soham Chakraborty
+    shell: /bin/bash
+    primary_group: schakraborty
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    ssh_import_id:
+    lock_passwd: false
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDH8uZQzBu7yZs+Bi8khqCk4lo88sJAnMr0BkujNnYOxk+Ov/WxrIy1YllB5d6S9TNfi7vVjMoufq+kO1OcXAeKEPcsNQy11DQOaEhd5UD+jWwSuJTsGgdamn7hlUfbxcDO+l3w15x0jZ2ZvS4MUdRHNblcIdViESvgTK9RdY1UGJkm7v9+Ns1rDimckH6sCca5Zqund79acO8oopEEtePKxzKgwFFg7p65OFKmw/AMMbPqzP7WUc1tZJ788+cHSFjHF9hDsR4ykucU1ngbVdPGBL0igLgr5eG2D0xHLUOsGPpZIdyOaHyu+7YURgRcR4Vuq5m7FBtRE064vO8Vww0LWCNkeJHpymx1OZV+1L2eTkFAjiwccPcbAgOuX2waVbBHC1cqu9nJmV+VXsJXc17OxrKo9k8bzjFAMBCv8Lj13q0Pon/oNY8lhwISVVlmZw3l0a8Bg4Jt49Wag9HbZOqWpO0tHjzBi0DNUOFaJcpyzJRWa9gpxBzYdOFOZzcigPs= soham@localhost.localdomain
+
+

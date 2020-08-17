@@ -1,10 +1,11 @@
+bastion_ami         = "ami-0aa3620fadad9198e"       # From https://wiki.centos.org/Cloud/AWS
 instance_type       = "t3a.medium"
 min_size            = 1
 max_size            = 2
 desired_capacity    = 1
 ebs_volume_size     = 16
 root_volume_size    = 8
-environment         = "development"
-role                = "bastion"
+Environment         = "development"
+Role                = "bastion"
 instance_count      = [1]
-key_name            = "eu_west_2_ssh_key"
+key_name            = "docker_ssh_key"

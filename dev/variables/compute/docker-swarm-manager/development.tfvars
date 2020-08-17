@@ -1,4 +1,4 @@
-//image_id            = ""
+ami                 = "ami-0aa3620fadad9198e"       # From https://wiki.centos.org/Cloud/AWS
 instance_type       = "t3a.medium"
 min_size            = 3
 max_size            = 5
@@ -8,4 +8,4 @@ root_volume_size    = 8
 environment         = "development"
 role                = "docker-swarm-manager"
 instance_count      = [3]
-key_name            = "eu_west_2_ssh_key"
+key_name            = "docker-ssh-key"

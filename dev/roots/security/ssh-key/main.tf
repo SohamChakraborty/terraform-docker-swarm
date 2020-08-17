@@ -10,10 +10,11 @@ provider "aws" {
     version                 = "2.69"
 }
 
-resource "aws_key_pair" "soham_ssh_key" {
-    key_name                = "soham-ssh-key-eu-west-2"
+resource "aws_key_pair" "docker_ssh_key" {
+    key_name                = "docker_ssh_key"
     tags                    = {
-        name           = "soham-ssh-key"
+        Name           = "docker-ssh-key"
   }
-    public_key              = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDH8uZQzBu7yZs+Bi8khqCk4lo88sJAnMr0BkujNnYOxk+Ov/WxrIy1YllB5d6S9TNfi7vVjMoufq+kO1OcXAeKEPcsNQy11DQOaEhd5UD+jWwSuJTsGgdamn7hlUfbxcDO+l3w15x0jZ2ZvS4MUdRHNblcIdViESvgTK9RdY1UGJkm7v9+Ns1rDimckH6sCca5Zqund79acO8oopEEtePKxzKgwFFg7p65OFKmw/AMMbPqzP7WUc1tZJ788+cHSFjHF9hDsR4ykucU1ngbVdPGBL0igLgr5eG2D0xHLUOsGPpZIdyOaHyu+7YURgRcR4Vuq5m7FBtRE064vO8Vww0LWCNkeJHpymx1OZV+1L2eTkFAjiwccPcbAgOuX2waVbBHC1cqu9nJmV+VXsJXc17OxrKo9k8bzjFAMBCv8Lj13q0Pon/oNY8lhwISVVlmZw3l0a8Bg4Jt49Wag9HbZOqWpO0tHjzBi0DNUOFaJcpyzJRWa9gpxBzYdOFOZzcigPs= soham@localhost.localdomai"
+    public_key              = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDACWKULsfI5Hyk8j7IIZfH27aphiipTvzA6Q+MBZKYSMbvQu5B7ZYHA/++wlxbViF6guc6WgdJra9vb6JKmWD6MliiaDJ+eEL/WQKgmC2BTk5d6f2LRw6UtSyIr9QSzeNYeu2nMR1UgR/RT2Qw30UEtMcyE24OYm2y1E40C6okQT63jDfasrpxUk9BgRr23x6UQCVBuTdyBNOCuSOXfDgY69RhPAnlHtoRwcnjiskjG+nRMX+PDna9ZyANhfEYIUHhmumDLYP9wqkQ3kYMZTqhvioq/WND+a6SnZDpBWgKAyIsCFx72tDfBr6T/gINZi0uxyme1s9l0MJ1BOG+pPZOYH5YMJvNq7T9i8wUGhW+RZZETXWAqR5H9NjqTrwB5+RrXl2dwc2b9A4msthuP3b7bU42a2uWPmLkl1GYdMUGZf2anFP3Iku32y0mj2GZZz5ahYG7d8TpYpvrm+jYa3sw3Oa6jyaR3SSr0yC0opLV5VuHndAqrlLEfjdhIUy87bM= soham@localhost.localdomain"
 }
+
