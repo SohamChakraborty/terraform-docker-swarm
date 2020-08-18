@@ -8,4 +8,4 @@ root_volume_size    = 8
 environment         = "development"
 role                = "docker-swarm-manager"
 instance_count      = [3]
-key_name            = "docker-ssh-key"
+key_name            = "docker_ssh_key"

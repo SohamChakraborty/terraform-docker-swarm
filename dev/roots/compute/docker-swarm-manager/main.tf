@@ -98,12 +98,12 @@ module "docker-swarm-manager-asg" {
   tags = [
     {
       key                 = "Environment"
-      value               = "var.environment"
+      value               = "development"
       propagate_at_launch = true
     },
     {
       key                 = "Role"
-      value               = "var.role"
+      value               = "docker-swarm-manager"
       propagate_at_launch = true
     },
   ]
